@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang= "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width= device-width, initial-scale=1.0">
+        <title> sendEmail</title>
+    </head>
+    <body>
+        <h1>
+            send email
+        </h1>
+        <form>
+            <input type="text" id="subject" placeholder="subject"> <br>
+            <input type="email" id="email" placeholder="Email"> <br>
+            <textarea name="text" id="text" cols="30" rows="10"></textarea> <br>
+            <input type="submit" value="submit">
+        </form>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+        <script>
+        $('form').on('submit') , (e)=>{
+         e.preventDefult();
+        const email = $ ('#email').val().trim();
+        const subject = $ ('#subject').val().trim();
+        const text = $ ('#text').val().trim();
+        
+        const Data = {
+            email,
+            subject,
+            text
+        };
+
+
+
+        $.post('/email', Data , function(){
+            console.log('server recieved our data');
+        });
+        
+        };
+ 
+        </script>
+    </body>
+
+</html>
