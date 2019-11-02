@@ -6,7 +6,7 @@ const path = require ('path');
 const log = console.log
 const PORT = 8080;
 
-app.use(cors());
+// app.use(cors());
 //Part2
 //data parsing
 app.use(express.urlencoded({
